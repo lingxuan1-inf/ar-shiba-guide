@@ -57,21 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
         exhibitText.textContent = text;
         nextBtn.textContent = "Next Fact >";
 
-        // Play animation if the model has one, OR manual spin
+        // Remove spin animation if present (User requested no animation)
         const shibaModel = document.getElementById('shiba-model-gltf');
         if (shibaModel) {
-            // Trigger a 360 spin animation
-            // We use 'emit' to trigger a custom animation event if we set it up, or just simple setAttribute
-            // Using a temporary animation attribute logic:
-            shibaModel.removeAttribute('animation__spin'); // Reset
-            setTimeout(() => {
-                // Spin around Z axis: from (270 0 0) to (270 0 360)
-                shibaModel.setAttribute('animation__spin', 'property: rotation; from: 270 0 0; to: 270 0 360; dur: 1000; easing: easeInOutQuad');
-            }, 10);
+            shibaModel.removeAttribute('animation__spin');
         }
 
         update3DBubble(text);
     }
+}
 
     function update3DBubble(text) {
         // Simple scale pop-in
@@ -84,9 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Init check for URL params to switch exhibits (Simulating NFC tag diffs)
     const urlParams = new URLSearchParams(window.location.search);
-    const exhibitId = urlParams.get('id');
-    if (exhibitId && exhibits[exhibitId]) {
-        currentExhibit = exhibits[exhibitId];
-    }
+const exhibitId = urlParams.get('id');
+if (exhibitId && exhibits[exhibitId]) {
+    currentExhibit = exhibits[exhibitId];
+}
 
 });
