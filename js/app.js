@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Using a temporary animation attribute logic:
             shibaModel.removeAttribute('animation__spin'); // Reset
             setTimeout(() => {
-                // Spin around Z axis: from (270 180 0) to (270 180 360)
-                shibaModel.setAttribute('animation__spin', 'property: rotation; from: 270 180 0; to: 270 180 360; dur: 1000; easing: easeInOutQuad');
+                // Spin around Z axis: from (270 0 0) to (270 0 360)
+                shibaModel.setAttribute('animation__spin', 'property: rotation; from: 270 0 0; to: 270 0 360; dur: 1000; easing: easeInOutQuad');
             }, 10);
         }
 
