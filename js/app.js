@@ -57,12 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
         exhibitText.textContent = text;
         nextBtn.textContent = "Next Fact >";
 
-        // Animation logic removed
+        // Play animation if the model has one named 'Bark' or 'Jump'
+        const shibaModel = document.getElementById('shiba-model-gltf');
+        if (shibaModel) {
+            // "animation-mixer" is the component from aframe-extras that plays the GLB animations
+            // We set the clip to '*' to play all, or a specific name like 'Run'
+            // For now, let's try to play a 'Jump' animation if they provide one, or default to all.
+            shibaModel.setAttribute('animation-mixer', 'clip: *; loop: once; timeScale: 1');
+
+            // Also keep the procedural hop as a fallback/enhancement
+            shibaModel.setAttribute('animation__hop', 'property: position; from: 0 0 0.5; to: 0 0.1 0.5; dur: 200; dir: alternate; loop: 2');
+        }
 
         update3DBubble(text);
     }
-}
-
 
     function update3DBubble(text) {
         // Simple scale pop-in
@@ -75,9 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Init check for URL params to switch exhibits (Simulating NFC tag diffs)
     const urlParams = new URLSearchParams(window.location.search);
-const exhibitId = urlParams.get('id');
-if (exhibitId && exhibits[exhibitId]) {
-    currentExhibit = exhibits[exhibitId];
-}
+    const exhibitId = urlParams.get('id');
+    if (exhibitId && exhibits[exhibitId]) {
+        currentExhibit = exhibits[exhibitId];
+    }
 
 });
