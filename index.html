@@ -38,13 +38,9 @@
             <a-entity id="guide-container" position="0 0 0" rotation="0 180 0">
 
                 <!-- 3D MODEL FROM ASSETS -->
-                <!-- Wrapper for Standing Up (X = -90) -->
-                <a-entity rotation="-90 0 0">
-                    <!-- Inner Model for Facing Direction (Y = 180) -->
-                    <!-- Scale is 1.0 -->
-                    <a-entity id="shiba-model-gltf" gltf-model="#shiba-model" scale="1.0 1.0 1.0" position="0 0 0.5"
-                        rotation="0 180 0">
-                    </a-entity>
+                <!-- Rotation set to 180 0 0 per user request -->
+                <a-entity id="shiba-model-gltf" gltf-model="#shiba-model" scale="1.0 1.0 1.0" position="0 0 0.5"
+                    rotation="180 0 0">
                 </a-entity>
 
                 <!-- Speech Bubble Entity -->

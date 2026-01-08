@@ -57,11 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         exhibitText.textContent = text;
         nextBtn.textContent = "Next Fact >";
 
-        // Remove spin animation if present (User requested no animation)
-        const shibaModel = document.getElementById('shiba-model-gltf');
-        if (shibaModel) {
-            shibaModel.removeAttribute('animation__spin');
-        }
+        // Animation logic removed
 
         update3DBubble(text);
     }
