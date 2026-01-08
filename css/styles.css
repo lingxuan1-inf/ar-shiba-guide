@@ -120,10 +120,10 @@ button.primary-btn {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s, box-shadow 0.2s;
 
-    /* Absolute positioning to bottom LEFT */
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
+    /* Normal flow positioning (inside chatbox) */
+    /* position: absolute; removed to restore previous layout */
+    margin-left: auto;
+    /* Push to right if flex container allows, or just let it sit */
 }
 
 .primary-btn:active {
