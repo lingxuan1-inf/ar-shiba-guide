@@ -35,12 +35,13 @@
         <a-marker preset="hiro" id="exhibit-marker">
 
             <!-- Container for the Guide -->
-            <a-entity id="guide-container" position="0 0 0" rotation="0 180 0">
+            <!-- Reset container rotation to 0 to avoid compounding issues -->
+            <a-entity id="guide-container" position="0 0 0" rotation="0 0 0">
 
                 <!-- 3D MODEL FROM ASSETS -->
-                <!-- Set Z rotation to 270 per user request -->
+                <!-- Standard Upright Facing Front: 270 0 0 (assuming model faces -Z internally) -->
                 <a-entity id="shiba-model-gltf" gltf-model="#shiba-model" scale="1.0 1.0 1.0" position="0 0 0.5"
-                    rotation="0 0 270">
+                    rotation="270 0 0">
                 </a-entity>
 
                 <!-- Speech Bubble Entity -->
