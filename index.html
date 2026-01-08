@@ -39,14 +39,14 @@
 
                 <!-- 3D MODEL FROM ASSETS -->
                 <!-- Scale might need adjustment depending on the authentic model size -->
-                <a-entity id="shiba-model-gltf" gltf-model="#shiba-model" scale="0.5 0.5 0.5" position="0 0 0.5"
-                    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
+                <a-entity id="shiba-model-gltf" gltf-model="#shiba-model" scale="0.5 0.5 0.5" position="0 0 0.5">
                 </a-entity>
 
                 <!-- Speech Bubble Entity -->
-                <a-entity position="0.6 1.2 0" scale="0 0 0" id="speech-bubble-3d" rotation="0 0 0">
+                <!-- Shifted higher to 1.8 to avoid blocking the model -->
+                <a-entity position="0.6 1.8 0" scale="0 0 0" id="speech-bubble-3d" rotation="0 0 0">
                     <a-plane width="2" height="1" color="white" opacity="0.95" position="0 0 0"></a-plane>
-                    <a-text value="Woof! I'm your guide." color="#333" align="center" width="1.8"
+                    <a-text value="Hello! I'm your guide." color="#333" align="center" width="1.8"
                         position="0 0 0.02"></a-text>
                     <a-triangle vertex-a="0 0 0" vertex-b="-0.1 -0.1 0" vertex-c="0 -0.5 0" color="white"
                         position="-0.5 -0.5 0" rotation="0 0 45"></a-triangle>
@@ -66,7 +66,7 @@
         </header>
 
         <div id="guide-card" class="glass-panel hidden">
-            <div class="character-icon">🐕</div>
+            <div class="character-icon">🐱</div>
             <div class="content">
                 <h2 id="exhibit-title">Welcome!</h2>
                 <p id="exhibit-text">Scan the marker to meet your guide.</p>
