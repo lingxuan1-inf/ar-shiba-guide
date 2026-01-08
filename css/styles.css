@@ -79,8 +79,7 @@ header h1 {
     gap: 15px;
     width: 90%;
     max-width: 400px;
-    padding-bottom: 50px;
-    /* Space for the button */
+    /* padding-bottom removed as button is back in flow */
 }
 
 .character-icon {

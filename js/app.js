@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 }
 
+
     function update3DBubble(text) {
         // Simple scale pop-in
         speechBubble3D.setAttribute('scale', '0 0 0');
