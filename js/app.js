@@ -57,16 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
         exhibitText.textContent = text;
         nextBtn.textContent = "Next Fact >";
 
-        // Play animation if the model has one named 'Bark' or 'Jump'
+        // Play animation if the model has one, OR manual spin
         const shibaModel = document.getElementById('shiba-model-gltf');
         if (shibaModel) {
-            // "animation-mixer" is the component from aframe-extras that plays the GLB animations
-            // We set the clip to '*' to play all, or a specific name like 'Run'
-            // For now, let's try to play a 'Jump' animation if they provide one, or default to all.
-            shibaModel.setAttribute('animation-mixer', 'clip: *; loop: once; timeScale: 1');
-
-            // Also keep the procedural hop as a fallback/enhancement
-            shibaModel.setAttribute('animation__hop', 'property: position; from: 0 0 0.5; to: 0 0.1 0.5; dur: 200; dir: alternate; loop: 2');
+            // Trigger a 360 spin animation
+            // We use 'emit' to trigger a custom animation event if we set it up, or just simple setAttribute
+            // Using a temporary animation attribute logic:
+            shibaModel.removeAttribute('animation__spin'); // Reset
+            setTimeout(() => {
+                shibaModel.setAttribute('animation__spin', 'property: rotation; from: 90 0 0; to: 90 360 0; dur: 1000; easing: easeInOutQuad');
+            }, 10);
         }
 
         update3DBubble(text);
